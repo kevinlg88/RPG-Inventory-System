@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Rpg Inventory System - Kevin.sln"
+    "dotnet.defaultSolution": "RPG-Inventory-System.sln"
 }
