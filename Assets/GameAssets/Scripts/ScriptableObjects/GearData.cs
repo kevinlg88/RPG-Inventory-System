@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GearData : MonoBehaviour
+[CreateAssetMenu(fileName = "New Gear", menuName = "Inventory/Gear")]
+public class GearData : ItemData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int attack;
 
-    // Update is called once per frame
-    void Update()
+    public override void Use()
     {
-        
+        Debug.Log($"Equipping {itemName} with {attack} attack.");
     }
 }

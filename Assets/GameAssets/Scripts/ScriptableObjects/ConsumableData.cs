@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConsumableData : MonoBehaviour
+[CreateAssetMenu(fileName = "New Consumable", menuName = "Inventory/Consumable")]
+public class ConsumableData : ItemData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int healthRestore;
 
-    // Update is called once per frame
-    void Update()
+    public override void Use()
     {
-        
+        Debug.Log($"Consuming {itemName} to restore {healthRestore} health.");
     }
 }
+
