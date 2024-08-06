@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class InventoryEvent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public event Action<ItemController> OnItemAdded;
+    public event Action<ItemController> OnItemRemoved;
+
+    public void ItemAdded(ItemController itemController)
     {
-        
+        OnItemAdded?.Invoke(itemController);
+        Debug.Log($"Item {itemController.ItemData.itemName} foi adicionado ao inventário.");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ItemRemoved(ItemController itemController)
     {
-        
+        OnItemRemoved?.Invoke(itemController);
+        Debug.Log($"Item {itemController.ItemData.itemName} foi removido do inventário.");
     }
 }

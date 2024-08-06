@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Image itemIcon;
+    public ButtonHandler useButton;
 
-    // Update is called once per frame
-    void Update()
+    public ItemController ItemController { get; private set; }
+
+    public void Initialize(ItemController itemController)
     {
-        
+        ItemController = itemController;
+        itemIcon.sprite = itemController.ItemData.itemIcon;
+        useButton.onClick.AddListener(ItemController.UseItem);
+        useButton.OnLeftClick += ItemController.SelectItem;
     }
 }

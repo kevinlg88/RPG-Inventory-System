@@ -1,18 +1,23 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class InventoryModel : MonoBehaviour
+public class InventoryModel
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<ItemModel> items;
+
+    public InventoryModel()
     {
-        
+        items = new List<ItemModel>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddItem(ItemModel item)
     {
-        
+        items.Add(item);
+    }
+
+    public void RemoveItem(Guid id)
+    {
+        ItemModel itemModel = items.Find(e => e.itemId == id);
+        items.Remove(itemModel);
     }
 }

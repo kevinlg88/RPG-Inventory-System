@@ -1,18 +1,39 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class ItemController : MonoBehaviour
+public class ItemController
 {
-    // Start is called before the first frame update
-    void Start()
+    private readonly ItemModel _itemModel;
+
+    private readonly InventoryController _inventoryController;
+
+    public ItemData ItemData => _itemModel.itemData;
+    public Guid ItemId=> _itemModel.itemId;
+    public ItemController(InventoryController inventoryController ,ItemModel itemModel)
     {
-        
+        _inventoryController = inventoryController;
+        _itemModel = itemModel;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SelectItem()
     {
-        
+        _inventoryController.SelectItem(this);
     }
+
+    public void UseItem()
+    {
+        if(_itemModel.itemData is ConsumableData)
+        {
+            Debug.Log("it's a potion");
+            _itemModel.UseItem();
+            _inventoryController.RemoveItem(this);
+        }
+        else if(_itemModel.itemData is GearData)
+        {
+            Debug.Log("it's a gear");
+        }
+    }
+
 }

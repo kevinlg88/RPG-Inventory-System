@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class ItemModel : MonoBehaviour
+public class ItemModel
 {
-    // Start is called before the first frame update
-    void Start()
+    public ItemData itemData;
+
+    public Guid itemId;
+    public ItemModel(ItemData data)
     {
-        
+        itemData = data;
+        itemId = Guid.NewGuid();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UseItem()
     {
-        
+        itemData.Use();
     }
 }

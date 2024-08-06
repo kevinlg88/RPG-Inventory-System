@@ -9,15 +9,12 @@ public class GameInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        Debug.Log("Instaling bind single");
         Container.Bind<InventoryModel>().AsSingle();
-        Container.Bind<InventoryEvent>().AsSingle();
-        //Container.Bind<InventoryEvent>().FromNewComponentOnNewGameObject().AsSingle();
+        Container.Bind<InventoryEvent>().FromNewComponentOnNewGameObject().AsSingle();
         Container.Bind<InventoryController>().AsSingle();
+        // Container.Bind<InventoryView>().AsSingle();
+        Container.Bind<InventoryView>().AsTransient();
 
-        // Create and bind InventoryView
-        Container.Bind<InventoryView>().FromInstance(inventoryViewPrefab).AsSingle();
-
-        // Initialize InventoryView
-        Container.QueueForInject(inventoryViewPrefab);
     }
 }
