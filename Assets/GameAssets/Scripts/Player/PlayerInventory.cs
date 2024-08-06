@@ -19,6 +19,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItemToInventory(ItemData itemData)
     {
+        Debug.Log(itemData.name);
         _inventoryController.AddItem(itemData);
         Debug.Log($"Item {itemData.itemName} adicionado ao inventário.");
         countItems = _inventoryController.ItemControllers.Count;

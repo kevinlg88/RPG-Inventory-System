@@ -22,7 +22,7 @@ public class GameInstaller : MonoInstaller
         Container.Bind<PlayerGearController>().AsSingle();
         //Views
         Container.Bind<InventoryView>().AsSingle();
-        Container.Bind<PlayerStatusView>().AsSingle();
+        //Container.Bind<PlayerStatusView>().AsSingle();
         Container.Bind<PlayerGearView>().AsSingle();
 
 
