@@ -4,7 +4,7 @@ using Zenject;
 public class PlayerStatusController
 {
     private readonly PlayerStatusModel _playerStatusModel;
-    private readonly PlayerStatusView _playerStatusView;
+    private PlayerStatusView _playerStatusView;
     private readonly StatusEvent _statusEvent;
 
 
@@ -13,11 +13,15 @@ public class PlayerStatusController
     public int Attack => _playerStatusModel.GetAttack();
     public int Velocity => _playerStatusModel.GetVelocity();
     [Inject]
-    public PlayerStatusController(PlayerStatusModel playerStatusModel, PlayerStatusView playerStatusView, StatusEvent statusEvent)
+    private void Initialize(PlayerStatusView playerStatusView)
+    {
+        _playerStatusView = playerStatusView;
+    }
+    [Inject]
+    public PlayerStatusController(PlayerStatusModel playerStatusModel, StatusEvent statusEvent)
     {
         Debug.Log("Criou um Status Controller");
         _playerStatusModel = playerStatusModel;
-        _playerStatusView = playerStatusView;
         _statusEvent = statusEvent;
 
         _statusEvent.OnConsumableChangeStatus += ConsumableChangeStatus;
@@ -47,6 +51,7 @@ public class PlayerStatusController
 
     private void ConsumableChangeStatus(ConsumableData consumableData)
     {
+        Debug.Log("Consumable Change Status: " + consumableData.name);
         foreach (StatusConsumable item in consumableData.status)
         {
             switch (item.enumStatus)
@@ -71,6 +76,7 @@ public class PlayerStatusController
 
     private void GearChangeStatus(GearData gearData)
     {
+        Debug.Log("Gear Change Status: " + gearData.name);
         foreach (StatusGear item in gearData.statusGears)
         {
             switch (item.enumStatus)

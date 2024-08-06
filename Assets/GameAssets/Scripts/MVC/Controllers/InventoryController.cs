@@ -18,12 +18,10 @@ public class InventoryController
     {
         if(statusEvent != null)
         {
-            Debug.Log("Status event vive no inject");
             _statusEvent = statusEvent;
         }
         if(gearEvent != null)
         {
-            Debug.Log("Gear event vive no inject");
             _gearEvent = gearEvent;
         }
     }
@@ -31,7 +29,6 @@ public class InventoryController
     [Inject]
     public InventoryController(InventoryModel inventoryModel, InventoryEvent inventoryEvent)
     {
-        Debug.Log("Criou um inventory");
         _inventoryModel = inventoryModel;
         _inventoryEvent = inventoryEvent;
         ItemControllers = new List<ItemController>();
@@ -71,11 +68,13 @@ public class InventoryController
 
     public void ConsumableUsed(ConsumableData consumable)
     {
+        Debug.Log("Consumiu!!");
         _statusEvent.ConsumableChangeStatus(consumable);
     }
 
     public void EquipedGear(GearData gearData)
     {
+        Debug.Log("Equipou!!");
         _gearEvent.GearEquiped(gearData);
         _statusEvent.GearChangeStatus(gearData);
     }

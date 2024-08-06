@@ -5,9 +5,9 @@ using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
+    [SerializeField] GameObject playerStatusViewPrefab;
     public override void InstallBindings()
     {
-        Debug.Log("Instaling bind as single");
         //Models
         Container.Bind<InventoryModel>().AsSingle();
         Container.Bind<PlayerStatusModel>().AsSingle();
@@ -22,7 +22,8 @@ public class GameInstaller : MonoInstaller
         Container.Bind<PlayerGearController>().AsSingle();
         //Views
         Container.Bind<InventoryView>().AsSingle();
-        //Container.Bind<PlayerStatusView>().AsSingle();
+        //Container.Bind<PlayerStatusView>().FromComponentInNewPrefab(playerStatusViewPrefab).AsSingle();
+        Container.Bind<PlayerStatusView>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PlayerGearView>().AsSingle();
 
 
