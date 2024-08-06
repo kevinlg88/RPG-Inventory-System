@@ -19,6 +19,7 @@ public class InventoryView : MonoBehaviour
     [Space(5)]
     [Header("Description")]
     [SerializeField] GameObject descriptionPanel;
+    [SerializeField] Image iconDescription;
     [SerializeField] TextMeshProUGUI descriptionText;
 
     private InventoryController _inventoryController;
@@ -33,11 +34,10 @@ public class InventoryView : MonoBehaviour
         _inventoryController = inventoryController;
         _itemViews = new List<ItemView>();
 
-        if(_inventoryController != null)Debug.Log("Existe um inventory controller");
-        if(inventoryEvent != null)Debug.Log("Existe um inventory event");
-
         inventoryEvent.OnItemAdded += AddItemView;
         inventoryEvent.OnItemRemoved += RemoveItemView;
+        inventoryEvent.OnItemSelected += SetDescription;
+        inventoryEvent.OnItemUnselected += UnselectDescription;
 
         removeItemBttn.onClick.AddListener(inventoryController.RemoveSelectedItem);
 
@@ -47,6 +47,18 @@ public class InventoryView : MonoBehaviour
         }
     }
 
+    private void SetDescription(ItemController itemController)
+    {
+        descriptionPanel.SetActive(true);
+        iconDescription.sprite = itemController.ItemData.itemIcon;
+        descriptionText.text = itemController.ItemData.description;
+    }
+    private void UnselectDescription()
+    {
+        descriptionText.text = null;
+        iconDescription.sprite = null;
+        descriptionPanel.SetActive(false);
+    }
     private void AddItemView(ItemController itemController)
     {
         AddNewItem(itemController);

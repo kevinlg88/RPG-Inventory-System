@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1958f79dce1de45a4dadd35e49d93d, type: 3}
   m_Name: Soldier Top Armor
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 0}
-  itemID: 0
-  attack: 0
+  itemName: Soldier Top Armor
+  itemIcon: {fileID: 1807011904, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
+  description: vida+10 / resist+10
+  statusGears:
+  - enumStatus: 1
+    value: 10
+  - enumStatus: 2
+    value: 10

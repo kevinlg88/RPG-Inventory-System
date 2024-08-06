@@ -27,12 +27,15 @@ public class ItemController
         if(_itemModel.itemData is ConsumableData)
         {
             Debug.Log("it's a potion");
-            _itemModel.UseItem();
+            ConsumableData consumableData = _itemModel.itemData as ConsumableData;
+            _inventoryController.ConsumableUsed(consumableData);
             _inventoryController.RemoveItem(this);
         }
         else if(_itemModel.itemData is GearData)
         {
             Debug.Log("it's a gear");
+            GearData gearData = _itemModel.itemData as GearData;
+            _inventoryController.EquipedGear(gearData);
         }
     }
 

@@ -39,7 +39,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Inventory"",
                     ""type"": ""Button"",
-                    ""id"": ""3a75721d-3e9b-4644-8d0b-fcb980c7c614"",
+                    ""id"": ""485dc10f-c117-414d-8f10-2a4ebfc1694f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -48,7 +48,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Character"",
                     ""type"": ""Button"",
-                    ""id"": ""85ee4f2f-3f68-4947-ab83-af8583908b9b"",
+                    ""id"": ""dca01a8c-c2cf-4f74-ab20-24201c8e7b1e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -57,7 +57,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Status"",
                     ""type"": ""Button"",
-                    ""id"": ""4eabc041-0251-42f4-9e87-02bfa01166f6"",
+                    ""id"": ""c6843a19-61fc-43b6-b174-eae08cc45429"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -78,7 +78,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dbf463dd-ae30-4913-a675-2f477256c998"",
+                    ""id"": ""e520217d-5a01-43d7-93da-f54434f856be"",
                     ""path"": ""<Keyboard>/#(I)"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -89,7 +89,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8335cdd6-9a0f-4478-a6fc-768c31733f45"",
+                    ""id"": ""a08577fc-3756-4884-a62d-76e4a151effd"",
                     ""path"": ""<Keyboard>/#(C)"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -100,7 +100,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f59d1a6c-7802-4bcd-81fe-c8c7480c4d6a"",
+                    ""id"": ""89eb8b53-24fd-4bb0-a43a-10f4431609a8"",
                     ""path"": ""<Keyboard>/#(S)"",
                     ""interactions"": """",
                     ""processors"": """",

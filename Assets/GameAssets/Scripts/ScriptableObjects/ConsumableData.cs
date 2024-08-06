@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Consumable", menuName = "Inventory/Consumable")]
 public class ConsumableData : ItemData
 {
-    public int healthRestore;
+    [SerializeField]
+    public List<StatusConsumable> status;
+}
 
-    public override void Use()
-    {
-        Debug.Log($"Consuming {itemName} to restore {healthRestore} health.");
-    }
+[Serializable]
+public class StatusConsumable
+{
+    public EnumConsumable enumStatus;
+    public int value;
+}
+
+[Serializable]
+public enum EnumConsumable
+{
+    None,
+    RestoreHealth,
+    IncreaseDefense,
+    IncreaseAttack,
 }
 

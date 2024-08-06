@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1958f79dce1de45a4dadd35e49d93d, type: 3}
   m_Name: Wood Sword
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 0}
-  itemID: 0
-  attack: 0
+  itemName: Wood Sword
+  itemIcon: {fileID: 413076180, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
+  description: Uma espada de madeira velha Atk+999
+  statusGears:
+  - enumStatus: 3
+    value: 999

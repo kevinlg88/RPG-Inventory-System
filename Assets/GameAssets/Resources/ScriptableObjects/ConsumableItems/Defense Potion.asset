@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b4a510182b8e24387c301ff01e2941, type: 3}
   m_Name: Defense Potion
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 0}
-  itemID: 0
-  healthRestore: 0
+  itemName: Defense Potion
+  itemIcon: {fileID: -968619741, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
+  description: Aumenta sua defesa e cura um pouco
+  status:
+  - enumStatus: 2
+    value: 5
+  - enumStatus: 1
+    value: 1

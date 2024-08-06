@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1958f79dce1de45a4dadd35e49d93d, type: 3}
   m_Name: Soldier Helmet
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 0}
-  itemID: 0
-  attack: 0
+  itemName: Soldier Helmet
+  itemIcon: {fileID: -741913959, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
+  description: Ganha 70 de resistencia
+  statusGears:
+  - enumStatus: 2
+    value: 70

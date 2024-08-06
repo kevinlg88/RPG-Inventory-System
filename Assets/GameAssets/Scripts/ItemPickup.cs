@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    public event Action<ItemPickup> OnPickup;
     public ItemData itemData;
 
     void OnCollisionEnter(Collision other)
@@ -14,6 +15,7 @@ public class ItemPickup : MonoBehaviour
             {
                 if(!playerInventory.isInventoryFull)
                 {
+                    OnPickup?.Invoke(this);
                     playerInventory.AddItemToInventory(itemData);
                     Destroy(gameObject);
                 }

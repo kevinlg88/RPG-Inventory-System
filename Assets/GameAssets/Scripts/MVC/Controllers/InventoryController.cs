@@ -6,14 +6,32 @@ public class InventoryController
 {
     private readonly InventoryModel _inventoryModel;
     private InventoryEvent _inventoryEvent;
+
+    private StatusEvent _statusEvent;
+    private GearEvent _gearEvent;
     public List<ItemController> ItemControllers { get; private set; }
 
     public ItemController selectedItem;
 
     [Inject]
+    private void Initialize(StatusEvent statusEvent, GearEvent gearEvent)
+    {
+        if(statusEvent != null)
+        {
+            Debug.Log("Status event vive no inject");
+            _statusEvent = statusEvent;
+        }
+        if(gearEvent != null)
+        {
+            Debug.Log("Gear event vive no inject");
+            _gearEvent = gearEvent;
+        }
+    }
+
+    [Inject]
     public InventoryController(InventoryModel inventoryModel, InventoryEvent inventoryEvent)
     {
-        Debug.Log("Criou um inventory model");
+        Debug.Log("Criou um inventory");
         _inventoryModel = inventoryModel;
         _inventoryEvent = inventoryEvent;
         ItemControllers = new List<ItemController>();
@@ -35,11 +53,13 @@ public class InventoryController
         _inventoryModel.RemoveItem(itemController.ItemId);
         _inventoryEvent.ItemRemoved(itemController);
         ItemControllers.Remove(itemController);
+        _inventoryEvent.ItemUnselected();
     }
 
     public void SelectItem(ItemController itemController)
     {
         selectedItem = itemController;
+        _inventoryEvent.ItemSelected(selectedItem);
     }
 
     public void RemoveSelectedItem()
@@ -47,5 +67,16 @@ public class InventoryController
         if(selectedItem is null)return;
         RemoveItem(selectedItem);
         selectedItem = null;
+    }
+
+    public void ConsumableUsed(ConsumableData consumable)
+    {
+        _statusEvent.ConsumableChangeStatus(consumable);
+    }
+
+    public void EquipedGear(GearData gearData)
+    {
+        _gearEvent.GearEquiped(gearData);
+        _statusEvent.GearChangeStatus(gearData);
     }
 }

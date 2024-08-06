@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Health Potion
   itemIcon: {fileID: 370585828, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
-  itemID: 0
-  healthRestore: 5
+  description: recupera 5 de vida
+  status:
+  - enumStatus: 1
+    value: 5

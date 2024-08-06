@@ -10,9 +10,4 @@ public class ItemModel
         itemData = data;
         itemId = Guid.NewGuid();
     }
-
-    public void UseItem()
-    {
-        itemData.Use();
-    }
 }
