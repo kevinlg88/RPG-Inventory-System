@@ -30,7 +30,6 @@ public class InventoryView : MonoBehaviour
     [Inject]
     public void Construct(InventoryController inventoryController, InventoryEvent inventoryEvent)
     {
-        Debug.Log("InventoryView construct called!");
         _inventoryController = inventoryController;
         _itemViews = new List<ItemView>();
 

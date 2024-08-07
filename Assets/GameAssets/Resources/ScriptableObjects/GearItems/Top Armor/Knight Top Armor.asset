@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Knight Top Armor
   itemIcon: {fileID: 1848672530, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
   description: Resist+50
+  enumGearSlot: 1
   statusGears:
   - enumStatus: 2
     value: 50

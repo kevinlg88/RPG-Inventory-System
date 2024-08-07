@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Metal Sword
   itemIcon: {fileID: -865553121, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
   description: Atk+100 / Vel + 100
+  enumGearSlot: 2
   statusGears:
   - enumStatus: 3
     value: 100

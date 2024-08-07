@@ -9,6 +9,14 @@ public class PlayerGearModel
     private GearData weapon;
     private GearData boots;
 
+    public PlayerGearModel()
+    {
+        helmet = null;
+        topArmor = null;
+        weapon = null;
+        boots = null;
+    }
+
     public void EquipHelmet(GearData item)
     {
         helmet = item;

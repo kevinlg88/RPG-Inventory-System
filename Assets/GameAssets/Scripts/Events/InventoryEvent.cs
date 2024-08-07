@@ -12,13 +12,11 @@ public class InventoryEvent : MonoBehaviour
     public void ItemAdded(ItemController itemController)
     {
         OnItemAdded?.Invoke(itemController);
-        Debug.Log($"Item {itemController.ItemData.itemName} foi adicionado ao inventário.");
     }
 
     public void ItemRemoved(ItemController itemController)
     {
         OnItemRemoved?.Invoke(itemController);
-        Debug.Log($"Item {itemController.ItemData.itemName} foi removido do inventário.");
     }
 
     public void ItemSelected(ItemController itemController)

@@ -23,6 +23,7 @@ public class InventoryController
         if(gearEvent != null)
         {
             _gearEvent = gearEvent;
+            _gearEvent.OnGearReplaced += GearReplaced;
         }
     }
 
@@ -68,14 +69,19 @@ public class InventoryController
 
     public void ConsumableUsed(ConsumableData consumable)
     {
-        Debug.Log("Consumiu!!");
         _statusEvent.ConsumableChangeStatus(consumable);
     }
 
     public void EquipedGear(GearData gearData)
     {
-        Debug.Log("Equipou!!");
         _gearEvent.GearEquiped(gearData);
         _statusEvent.GearChangeStatus(gearData);
+    }
+
+    private void GearReplaced(GearData gearData)
+    {
+        Debug.Log("Recebeu Replaced");
+        AddItem(gearData);
+        _statusEvent.GearRemoveStatus(gearData);
     }
 }

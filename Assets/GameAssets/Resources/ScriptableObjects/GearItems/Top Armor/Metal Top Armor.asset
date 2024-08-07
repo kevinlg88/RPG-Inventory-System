@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Metal Top Armor
   itemIcon: {fileID: 1990180816, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
   description: Vida+50
+  enumGearSlot: 1
   statusGears:
   - enumStatus: 1
     value: 50

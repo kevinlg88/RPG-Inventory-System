@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Wood Sword
   itemIcon: {fileID: 413076180, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
   description: Uma espada de madeira velha Atk+999
+  enumGearSlot: 2
   statusGears:
   - enumStatus: 3
     value: 999

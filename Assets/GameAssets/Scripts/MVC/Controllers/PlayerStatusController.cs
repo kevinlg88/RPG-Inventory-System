@@ -20,12 +20,12 @@ public class PlayerStatusController
     [Inject]
     public PlayerStatusController(PlayerStatusModel playerStatusModel, StatusEvent statusEvent)
     {
-        Debug.Log("Criou um Status Controller");
         _playerStatusModel = playerStatusModel;
         _statusEvent = statusEvent;
 
-        _statusEvent.OnConsumableChangeStatus += ConsumableChangeStatus;
-        _statusEvent.OnGearChangeStatus += GearChangeStatus;
+        _statusEvent.OnConsumableGainStatus += ConsumableGainStatus;
+        _statusEvent.OnGearEquipStatus += GearEquipStatus;
+        _statusEvent.OnGearRemovedStatus += GearRemovedStatus;
     }
 
     public void SetMaxHealth(int maxHealth)
@@ -49,9 +49,8 @@ public class PlayerStatusController
     }
 
 
-    private void ConsumableChangeStatus(ConsumableData consumableData)
+    private void ConsumableGainStatus(ConsumableData consumableData)
     {
-        Debug.Log("Consumable Change Status: " + consumableData.name);
         foreach (StatusConsumable item in consumableData.status)
         {
             switch (item.enumStatus)
@@ -74,27 +73,54 @@ public class PlayerStatusController
         }
     }
 
-    private void GearChangeStatus(GearData gearData)
+    private void GearEquipStatus(GearData gearData)
     {
-        Debug.Log("Gear Change Status: " + gearData.name);
         foreach (StatusGear item in gearData.statusGears)
         {
             switch (item.enumStatus)
             {
-                case EnumGear.MaxHealth:
+                case EnumGearStatus.MaxHealth:
                     _playerStatusModel.AddMaxHealth(item.value);
                     _playerStatusView.SetMaxHealth(MaxHealth);
                     break;
-                case EnumGear.Resistance:
+                case EnumGearStatus.Resistance:
                     _playerStatusModel.AddResistance(item.value);
                     _playerStatusView.SetResistance(Resistance);
                     break;
-                case EnumGear.Attack:
+                case EnumGearStatus.Attack:
                     _playerStatusModel.AddAttack(item.value);
                     _playerStatusView.SetAttack(Attack);
                     break;
-                case EnumGear.Velocity:
+                case EnumGearStatus.Velocity:
                     _playerStatusModel.AddVelocity(item.value);
+                    _playerStatusView.SetVelocity(Velocity);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void GearRemovedStatus(GearData gearData)
+    {
+        foreach (StatusGear item in gearData.statusGears)
+        {
+            switch (item.enumStatus)
+            {
+                case EnumGearStatus.MaxHealth:
+                    _playerStatusModel.RemoveMaxHealth(item.value);
+                    _playerStatusView.SetMaxHealth(MaxHealth);
+                    break;
+                case EnumGearStatus.Resistance:
+                    _playerStatusModel.RemoveResistance(item.value);
+                    _playerStatusView.SetResistance(Resistance);
+                    break;
+                case EnumGearStatus.Attack:
+                    _playerStatusModel.RemoveAttack(item.value);
+                    _playerStatusView.SetAttack(Attack);
+                    break;
+                case EnumGearStatus.Velocity:
+                    _playerStatusModel.RemoveVelocity(item.value);
                     _playerStatusView.SetVelocity(Velocity);
                     break;
                 default:

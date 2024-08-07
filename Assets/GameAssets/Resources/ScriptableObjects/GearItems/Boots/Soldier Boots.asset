@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Soldier Boots
   itemIcon: {fileID: -948843078, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
   description: Botas de soldado Atk+30 / Vel+10
+  enumGearSlot: 3
   statusGears:
   - enumStatus: 3
     value: 30

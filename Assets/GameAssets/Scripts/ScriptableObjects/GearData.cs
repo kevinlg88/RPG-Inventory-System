@@ -7,6 +7,8 @@ using UnityEngine;
 public class GearData : ItemData
 {
     [SerializeField]
+    public EnumGearSlot enumGearSlot;
+    [SerializeField]
     public List<StatusGear> statusGears;
 
 }
@@ -14,16 +16,25 @@ public class GearData : ItemData
 [Serializable]
 public class StatusGear
 {
-    public EnumGear enumStatus;
+    public EnumGearStatus enumStatus;
     public int value;
 }
 
 [Serializable]
-public enum EnumGear
+public enum EnumGearStatus
 {
     None,
     MaxHealth,
     Resistance,
     Attack,
     Velocity
+}
+
+[Serializable]
+public enum EnumGearSlot
+{
+    helmet,
+    topArmor,
+    weapon,
+    boots
 }

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Soldier Top Armor
   itemIcon: {fileID: 1807011904, guid: 5d45194dcba657d4489438a912bc44ac, type: 3}
   description: vida+10 / resist+10
+  enumGearSlot: 1
   statusGears:
   - enumStatus: 1
     value: 10
